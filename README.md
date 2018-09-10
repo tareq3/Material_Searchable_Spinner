@@ -1,5 +1,7 @@
 # Material_Searchable_Spinner
 
+<img src="first.gif" height="100" />
+
 ## How to use:
 
 ```
