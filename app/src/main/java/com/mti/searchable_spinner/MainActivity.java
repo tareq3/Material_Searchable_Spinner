@@ -16,16 +16,15 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> mArrayList=new ArrayList<>(Arrays.asList(        "Hit_Tareq","it_Islam"   ));
+    ArrayList<String> mArrayList=new ArrayList<>(Arrays.asList("Red_Apple","Green_Apple","Yellow_Banana"   ));
 
-    SearchableSpinner searchableSpinner;
+    SearchableSpinner    searchableSpinner;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
-        searchableSpinner= findViewById(R.id.searchableSpinner);
+        searchableSpinner  = findViewById(R.id.searchableSpinner);
       searchableSpinner.setTitle("Category",ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)); //without theme);
       searchableSpinner.setArrayList_String(mArrayList);
 
