@@ -1,0 +1,8 @@
+<!--
+  ~ Created by Tareq Islam on 9/8/18 4:13 PM
+  ~
+  ~  Last modified 9/8/18 4:12 PM
+  -->
+
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mti.searchable_spinner_ext" />

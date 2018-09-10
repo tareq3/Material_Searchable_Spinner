@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Tareq Islam on 9/8/18 4:16 PM
+  ~
+  ~  Last modified 9/8/18 4:16 PM
+  -->
+
+<resources>
+    <declare-styleable name="SearchableSpinner">
+        <attr name="hintText" format="string"/>
+    </declare-styleable>
+</resources>

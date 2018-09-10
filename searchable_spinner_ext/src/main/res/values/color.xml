@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Tareq Islam on 9/10/18 10:44 PM
+  ~
+  ~  Last modified 9/10/18 10:44 PM
+  -->
+
+<resources>
+    <color name="serchable_itemDef"> #D81B60</color>
+    <color name="searchable_item">#009688</color>
+</resources>

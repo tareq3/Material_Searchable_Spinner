@@ -1,0 +1,23 @@
+<!--
+  ~ Created by Tareq Islam on 9/10/18 4:23 PM
+  ~
+  ~  Last modified 9/10/18 4:23 PM
+  -->
+
+<vector android:height="46dp" android:viewportHeight="45.7"
+    android:viewportWidth="219.83" android:width="220dp"
+    xmlns:aapt="http://schemas.android.com/aapt" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:pathData="M18.12,0L201.71,0A18.12,18.12 0,0 1,219.83 18.12L219.83,27.58A18.12,18.12 0,0 1,201.71 45.7L18.12,45.7A18.12,18.12 0,0 1,0 27.58L0,18.12A18.12,18.12 0,0 1,18.12 0z">
+        <aapt:attr name="android:fillColor">
+            <gradient android:endX="109.91" android:endY="0"
+                android:startX="109.91" android:startY="45.7" android:type="linear">
+                <item android:color="#FFE6E6E6" android:offset="0.09"/>
+                <item android:color="#FFB3B3B3" android:offset="1"/>
+            </gradient>
+        </aapt:attr>
+    </path>
+    <path android:fillAlpha="0.75" android:fillColor="#f2f4f4"
+        android:pathData="M18.12,0L201.71,0A18.12,18.12 0,0 1,219.83 18.12L219.83,27.58A18.12,18.12 0,0 1,201.71 45.7L18.12,45.7A18.12,18.12 0,0 1,0 27.58L0,18.12A18.12,18.12 0,0 1,18.12 0z" android:strokeAlpha="0.75"/>
+    <path android:fillColor="#808080" android:pathData="M197.59,24.77l-12.42,0l6.21,7.75l6.21,-7.75z"/>
+    <path android:fillColor="#808080" android:pathData="M185.17,21.97l12.42,0l-6.21,-7.75l-6.21,7.75z"/>
+</vector>

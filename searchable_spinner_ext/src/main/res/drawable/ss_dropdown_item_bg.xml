@@ -1,0 +1,17 @@
+<!--
+  ~ Created by Tareq Islam on 9/10/18 12:38 AM
+  ~
+  ~  Last modified 9/10/18 12:38 AM
+  -->
+
+<vector android:height="26dp" android:viewportHeight="26.05"
+    android:viewportWidth="172.25" android:width="172dp" xmlns:android="http://schemas.android.com/apk/res/android">
+    <path android:fillAlpha="0.1" android:fillColor="#1f2023"
+        android:pathData="M1.36,0L170.89,0A1.36,1.36 0,0 1,172.25 1.36L172.25,23.57A1.36,1.36 0,0 1,170.89 24.93L1.36,24.93A1.36,1.36 0,0 1,0 23.57L0,1.36A1.36,1.36 0,0 1,1.36 0z" android:strokeAlpha="0.1"/>
+    <path android:fillAlpha="0.3" android:fillColor="#1f2023"
+        android:fillType="evenOdd"
+        android:pathData="M170.89,0H1.36A1.36,1.36 0,0 0,0 1.36V2.51A1.36,1.36 0,0 1,1.36 1.15H170.89a1.36,1.36 0,0 1,1.36 1.36V1.36A1.36,1.36 0,0 0,170.89 0Z" android:strokeAlpha="0.3"/>
+    <path android:fillAlpha="0.7" android:fillColor="#fff"
+        android:fillType="evenOdd"
+        android:pathData="M170.89,24.93H1.36A1.36,1.36 0,0 1,0 23.57v1.12A1.36,1.36 0,0 0,1.36 26H170.89a1.36,1.36 0,0 0,1.36 -1.36V23.57A1.36,1.36 0,0 1,170.89 24.93Z" android:strokeAlpha="0.7"/>
+</vector>
