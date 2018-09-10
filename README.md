@@ -1,18 +1,23 @@
 # Material_Searchable_Spinner
 
 ## How to use:
+
+```
 allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
+  ```
   
+```  
   dependencies {
 	        implementation 'com.github.tareq3:Material_Searchable_Spinner:1.0'
 	}
   
-  
+ ```
+ 
   ### Step for Initialization:
   ## XML:
   ```
@@ -29,9 +34,10 @@ allprojects {
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        
-        ```
-     ## JAVA:
+  
+  ```
+    
+   ## JAVA:
      
      ```
     //member variables
@@ -44,6 +50,7 @@ allprojects {
       searchableSpinner.setTitle("Category",ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)); //without theme);
       searchableSpinner.setArrayList_String(mArrayList);
 
+
     //getting selected item res 
      String slect = searchableSpinner.getSelectedItem().toString();
 
@@ -53,9 +60,9 @@ allprojects {
     ```
     
     
-    # Customization of color:
+   # Customization of color:
     
-    ### add this color in your color file then change the color code
+   ### add this color in your color file then change the color code
   
   ```
   //Just Add this color for changing default Item color and ItemColor
