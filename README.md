@@ -1,6 +1,6 @@
 # Material_Searchable_Spinner
 
-<img src="first.gif" height="100" />
+<img src="first.gif" height="300" />
 
 ## How to use:
 
