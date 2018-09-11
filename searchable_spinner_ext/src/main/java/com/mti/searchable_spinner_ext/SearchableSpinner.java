@@ -164,7 +164,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
             _isDirty = true;
             setAdapter(_arrayAdapter);
-           // setSelection(_items.indexOf(item));
+            setSelection(position);
         }
     }
 
