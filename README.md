@@ -16,7 +16,7 @@ allprojects {
 ```  
   dependencies {
   
-  		implementation 'com.github.tareq3:Material_Searchable_Spinner:2.0'
+  		implementation 'com.github.tareq3:Material_Searchable_Spinner:1.4'
 	
 	}
   
