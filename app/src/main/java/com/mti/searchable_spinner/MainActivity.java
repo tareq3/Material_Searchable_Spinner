@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> mArrayList=new ArrayList<>(Arrays.asList("Red_Apple","Green_Apple","Yellow_Banana" ,"orange", "Goava", "potato","Beans","cucamber","carrot","apple_syrup"  ));
+    ArrayList<String> mArrayList=new ArrayList<>(Arrays.asList("Red_Apple","Green_Apple","Yellow_Banana" ,"orange", "Goava", "potato","Beans","cucamber","carrot","apple_syrup","Red_Apple","Green_Apple","Yellow_Banana" ,"orange", "Goava", "potato","Beans","cucamber","carrot"  ));
 
     SearchableSpinner    searchableSpinner;
     @Override
