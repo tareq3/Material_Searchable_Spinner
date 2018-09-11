@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         searchableSpinner  = findViewById(R.id.searchableSpinner);
+        searchableSpinner.setCusBackground(getResources().getDrawable(R.drawable.ss_searchview));
       searchableSpinner.setTitle("Category",ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)); //without theme);
       searchableSpinner.setArrayList_String(mArrayList);
 

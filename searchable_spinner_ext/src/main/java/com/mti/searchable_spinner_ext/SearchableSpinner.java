@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.DialogInterface;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
@@ -66,9 +67,16 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         init();
     }
 
+
+    public void setCusBackground(Drawable resourceId){
+        if(resourceId==null)
+          setBackground(getResources().getDrawable(R.drawable.ss_dropdown)); //for changing Spinner background
+        else
+            setBackground(resourceId);
+    }
+
     private void init() {
 
-        setBackground(getResources().getDrawable(R.drawable.ss_dropdown)); //for changing Spinner background
 
             _items = new ArrayList();
         _searchableListDialog = SearchableListDialog.newInstance
