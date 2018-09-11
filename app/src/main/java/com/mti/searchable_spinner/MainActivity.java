@@ -16,7 +16,7 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayList<String> mArrayList=new ArrayList<>(Arrays.asList("Red_Apple","Green_Apple","Yellow_Banana"   ));
+    ArrayList<String> mArrayList=new ArrayList<>(Arrays.asList("Red_Apple","Green_Apple","Yellow_Banana" ,"orange", "Goava", "potato","Beans","cucamber","carrot","apple_syrup"  ));
 
     SearchableSpinner    searchableSpinner;
     @Override
@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
                int pos=searchableSpinner.getSelectedItemPosition();
 
-                  Toast.makeText(MainActivity.this, pos+ "" + slect, Toast.LENGTH_SHORT).show();
+                  Toast.makeText(MainActivity.this,  pos+"-" + slect, Toast.LENGTH_SHORT).show();
               }
 
       });

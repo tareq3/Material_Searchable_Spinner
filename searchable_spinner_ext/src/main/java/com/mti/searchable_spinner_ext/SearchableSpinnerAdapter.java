@@ -8,6 +8,7 @@ package com.mti.searchable_spinner_ext;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -24,17 +25,18 @@ import java.util.List;
 public class SearchableSpinnerAdapter  extends ArrayAdapter<String> implements Filterable{
 
     public static  SearchableSpinnerAdapter instance=null; //we need that to be static so that nobody can try to access this class before intializing instance
-
+    public static int pos;
 
     ArrayList<String> mArrayList=new ArrayList<>();
+    ArrayList<String> mArrayListFilterde=null;
 
     //Creating a single Instance so that we can create only one object out of that class
     public static SearchableSpinnerAdapter getInstance(Context context,int resource, ArrayList<String> modelArrayList){
 
         if(instance==null){
             instance=new SearchableSpinnerAdapter(context,resource,modelArrayList);
-            instance.mArrayList=modelArrayList;
-
+           instance.mArrayList=modelArrayList;
+           instance.mArrayListFilterde=modelArrayList;
 
             return instance;
 
@@ -46,6 +48,7 @@ public class SearchableSpinnerAdapter  extends ArrayAdapter<String> implements F
     public SearchableSpinnerAdapter(@NonNull Context context,int resource,  ArrayList<String> arrayList) {
         super(context,resource);
         mArrayList = arrayList;
+        mArrayListFilterde=arrayList;
     }
 
 
@@ -59,15 +62,21 @@ public class SearchableSpinnerAdapter  extends ArrayAdapter<String> implements F
 
     @Override
     public int getCount() {
-        return mArrayList.size();
+      return mArrayListFilterde.size();
     }
 
     @Override
     public String getItem(int position) {
-        return mArrayList.get(position);
+        pos=position;
+        return mArrayListFilterde.get(position);
     }
 
 
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -80,12 +89,14 @@ public class SearchableSpinnerAdapter  extends ArrayAdapter<String> implements F
 
     private DataFilter m_DataFilter;
 
+    @NonNull
     @Override
     public Filter getFilter() {
-        if (m_DataFilter == null)
-            m_DataFilter = new DataFilter();
+        if(m_DataFilter==null)
+        m_DataFilter= new DataFilter();
         return m_DataFilter;
     }
+
 }
 
 //Filter
@@ -102,8 +113,8 @@ class DataFilter extends Filter {
         // we just set the `values` property to the
         // original contacts list which contains all of them
         if (constraint == null || constraint.length() == 0) {
-            results.values = SearchableSpinner.mSearchableArraylist;
-            results.count = SearchableSpinner.mSearchableArraylist.size();
+            results.values = SearchableSpinnerAdapter.instance.mArrayList;
+            results.count = SearchableSpinnerAdapter.instance.mArrayList.size();
         } else { // Some search constraint has been passed
             // so let's filter accordingly
             ArrayList<String> filteredContacts = new ArrayList<>();
@@ -134,7 +145,9 @@ class DataFilter extends Filter {
 
     @Override
     protected void publishResults(CharSequence constraint, FilterResults results) {
-        SearchableSpinnerAdapter.instance.mArrayList = (ArrayList<String>) results.values;
-        SearchableSpinnerAdapter.instance.notifyDataSetChanged();
+        if(results.count>0) {
+            SearchableSpinnerAdapter.instance.mArrayListFilterde = (ArrayList<String>) results.values;
+            SearchableSpinnerAdapter.instance.notifyDataSetChanged();
+        }
     }
 }

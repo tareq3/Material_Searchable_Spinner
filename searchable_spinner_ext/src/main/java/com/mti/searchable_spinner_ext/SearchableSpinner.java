@@ -20,6 +20,7 @@ import android.widget.ArrayAdapter;
 
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -137,10 +138,19 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         }
     }
 
+    private static String selectedItem=null;
     @Override
     public void onSearchableItemClicked(Object item, int position) {
-        setSelection(_items.indexOf(item));
+        try {
+            if(position>=0) {
+                setSelection(position);
+                selectedItem = item.toString();
+            }
+        } catch (Exception e) {
+            Toast.makeText(_context, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(_context, ""+mSearchableArraylist.indexOf(item)+"-"+item.toString(), Toast.LENGTH_SHORT).show();
 
+        }
 
         if (!_isDirty ) {
 
@@ -179,7 +189,11 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         if (!TextUtils.isEmpty(_strHintText) && !_isDirty) {
             return NO_ITEM_SELECTED;
         } else {
-            return super.getSelectedItemPosition();
+            if(!selectedItem.equals("none")&& selectedItem!=null)
+                return  mSearchableArraylist.indexOf(selectedItem);
+            else
+                return NO_ITEM_SELECTED;
+           // return super.getSelectedItemPosition();
         }
     }
 
@@ -187,9 +201,9 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     public Object getSelectedItem() {
 
         if (!TextUtils.isEmpty(_strHintText) && !_isDirty) {
-            return null;
+            return "none";
         } else {
-            return super.getSelectedItem();
+            return selectedItem;
         }
     }
     public static ArrayList<String> mSearchableArraylist;

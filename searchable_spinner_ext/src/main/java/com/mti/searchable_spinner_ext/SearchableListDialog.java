@@ -24,10 +24,13 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SearchableListDialog extends DialogFragment implements
@@ -200,6 +203,7 @@ public class SearchableListDialog extends DialogFragment implements
         _listViewItems = (ListView) rootView.findViewById(R.id.listItems);
 
         //create the adapter by passing your ArrayList data
+
         mSearchableSpinnerAdapter = SearchableSpinnerAdapter.instance;
         //attach the adapter to the list
         _listViewItems.setAdapter(mSearchableSpinnerAdapter);
@@ -211,7 +215,10 @@ public class SearchableListDialog extends DialogFragment implements
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 pos=position;
-                    _searchableItem.onSearchableItemClicked(mSearchableSpinnerAdapter.getItem(position), position);
+
+          //      Toast.makeText(getActivity().getApplication().getApplicationContext(), ""+position+"-"+mSearchableSpinnerAdapter.mArrayListFilterde.get(position), Toast.LENGTH_SHORT).show();
+
+                    _searchableItem.onSearchableItemClicked(mSearchableSpinnerAdapter.mArrayListFilterde.get(position), position);
                     getDialog().dismiss();
 
             }
