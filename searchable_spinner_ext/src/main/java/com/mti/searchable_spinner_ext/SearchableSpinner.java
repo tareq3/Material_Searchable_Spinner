@@ -146,7 +146,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
         }
     }
 
-    private static String selectedItem=null;
+    public static String selectedItem=null;
     @Override
     public void onSearchableItemClicked(Object item, int position) {
         try {
@@ -214,6 +214,8 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
             return selectedItem;
         }
     }
+
+
     public static ArrayList<String> mSearchableArraylist;
     public void setArrayList_String( ArrayList<String> searchableArrayList){
 

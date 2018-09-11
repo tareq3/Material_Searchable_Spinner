@@ -134,6 +134,7 @@ class DataFilter extends Filter {
 
 
                 filteredContacts.add(0,"none");
+                SearchableSpinner.selectedItem="none";
             }
             // Finally set the filtered values and size/count
             results.values = filteredContacts;
