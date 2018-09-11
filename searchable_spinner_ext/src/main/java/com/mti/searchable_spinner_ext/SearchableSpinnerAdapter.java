@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class SearchableSpinnerAdapter  extends ArrayAdapter<String> implements F
     public static int pos;
 
     ArrayList<String> mArrayList=new ArrayList<>();
-    ArrayList<String> mArrayListFilterde=null;
+    ArrayList<String> mArrayListFilterde=new ArrayList<>();
 
     //Creating a single Instance so that we can create only one object out of that class
     public static SearchableSpinnerAdapter getInstance(Context context,int resource, ArrayList<String> modelArrayList){
@@ -68,6 +69,7 @@ public class SearchableSpinnerAdapter  extends ArrayAdapter<String> implements F
     @Override
     public String getItem(int position) {
         pos=position;
+
         return mArrayListFilterde.get(position);
     }
 
