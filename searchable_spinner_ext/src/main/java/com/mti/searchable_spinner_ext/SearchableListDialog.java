@@ -216,8 +216,6 @@ public class SearchableListDialog extends DialogFragment implements
 
                 pos=position;
 
-          //      Toast.makeText(getActivity().getApplication().getApplicationContext(), ""+position+"-"+mSearchableSpinnerAdapter.mArrayListFilterde.get(position), Toast.LENGTH_SHORT).show();
-
                     _searchableItem.onSearchableItemClicked(mSearchableSpinnerAdapter.mArrayListFilterde.get(position), position);
                     getDialog().dismiss();
 
