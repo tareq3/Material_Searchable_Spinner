@@ -15,7 +15,7 @@ allprojects {
   
 ```  
   dependencies {
-	        implementation 'com.github.tareq3:Material_Searchable_Spinner:1.2'
+	        implementation 'com.github.tareq3:Material_Searchable_Spinner:1.3'
 	}
   
  ```
@@ -71,4 +71,10 @@ allprojects {
     <color name="serchable_itemDef"> #000000</color>
     <color name="searchable_item">#FFFFFF</color>
     
-    ```
+   ```
+   
+  ### Set Custom BackGround in Spinner:-
+  ```
+  searchableSpinner.setCusBackground(null); //for default background
+  searchableSpinner.setCusBackground(getResources().getDrawable(R.drawable.ss_searchview)); //for custom background
+  
