@@ -222,6 +222,8 @@ public class SearchableListDialog extends DialogFragment implements
             }
         });
     }
+
+
 public static  int pos=-500;
     @Override
     public boolean onClose() {

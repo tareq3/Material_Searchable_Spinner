@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mti.searchable_spinner_ext.SearchableSpinner;
@@ -26,9 +27,10 @@ public class MainActivity extends AppCompatActivity {
 
         searchableSpinner  = findViewById(R.id.searchableSpinner);
         searchableSpinner.setCusBackground(getResources().getDrawable(R.drawable.ss_searchview));
-      searchableSpinner.setTitle("Category",ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)); //without theme);
-      searchableSpinner.setArrayList_String(mArrayList);
 
+      searchableSpinner.setTitle("Category",ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)); //without theme);
+        searchableSpinner.setItemSelected(2);
+      searchableSpinner.setArrayList_String(mArrayList);
 
 
 

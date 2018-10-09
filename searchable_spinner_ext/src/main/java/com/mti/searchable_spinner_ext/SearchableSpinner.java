@@ -19,17 +19,17 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 
 
-import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
+
 import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchableSpinner extends Spinner implements View.OnTouchListener,
+public class SearchableSpinner extends android.support.v7.widget.AppCompatSpinner implements View.OnTouchListener,
         SearchableListDialog.SearchableItem {
 
-    public static final int NO_ITEM_SELECTED = -1;
+
     private Context _context;
     private List _items;
     private SearchableListDialog _searchableListDialog;
@@ -37,7 +37,8 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     private boolean _isDirty;
     private ArrayAdapter _arrayAdapter;
     private String _strHintText;
-    private boolean _isFromInit;
+
+    private boolean _isFromInit; //this is true on initialization
 
 
     public SearchableSpinner(Context context) {
@@ -55,6 +56,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
             int attr = a.getIndex(i);
             if (attr == R.styleable.SearchableSpinner_hintText) {
                 _strHintText = a.getString(attr);
+
             }
         }
         a.recycle();
@@ -77,23 +79,17 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 
     private void init() {
 
-
             _items = new ArrayList();
-        _searchableListDialog = SearchableListDialog.newInstance
-                (_items);
+        _searchableListDialog = SearchableListDialog.newInstance(_items);
+
         _searchableListDialog.setOnSearchableItemClickListener(this);
         setOnTouchListener(this);
 
         _arrayAdapter = (ArrayAdapter) getAdapter();
-        if (!TextUtils.isEmpty(_strHintText)) {
 
-            ArrayAdapter arrayAdapter = new ArrayAdapter(_context, R.layout
-                    .searchable_spinner_item, new String[]{_strHintText});
-            _isFromInit = true;
-            setAdapter(arrayAdapter);
-        }
     }
 
+    //On touch we will show the search list dialog
     @Override
     public boolean onTouch(View v, MotionEvent event) {
         if (_searchableListDialog.isAdded()) {
@@ -123,27 +119,27 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     @Override
     public void setAdapter(SpinnerAdapter adapter) {
 
-        if (!_isFromInit) {
+       _arrayAdapter = (ArrayAdapter) adapter;
 
-            _arrayAdapter = (ArrayAdapter) adapter;
-            if (!TextUtils.isEmpty(_strHintText) && !_isDirty) {
+        if(item_to_select!=-1){ //if user want to show any item on initialization
+            super.setAdapter(adapter);
+            setSelection(item_to_select);
 
 
 
+        }else if (!TextUtils.isEmpty(_strHintText) && !_isDirty) { // if there is a hint  and not dirty means first time
 
                 ArrayAdapter arrayAdapter = new ArrayAdapter(_context, R.layout
                         .searchable_spinner_item_default, new String[]{_strHintText});
 
-
                 super.setAdapter(arrayAdapter);
-            } else {
-                super.setAdapter(adapter);
-            }
+       }
+       else { //if second time using
 
-        } else {
-             _isFromInit = false;
-            super.setAdapter(adapter);
-        }
+                super.setAdapter(adapter);
+       }
+
+
     }
 
     public static String selectedItem=null;
@@ -195,12 +191,12 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     @Override
     public int getSelectedItemPosition() {
         if (!TextUtils.isEmpty(_strHintText) && !_isDirty) {
-            return NO_ITEM_SELECTED;
+            return item_to_select;
         } else {
             if(!selectedItem.equals("none")&& selectedItem!=null)
                 return  mSearchableArraylist.indexOf(selectedItem);
             else
-                return NO_ITEM_SELECTED;
+                return item_to_select;
            // return super.getSelectedItemPosition();
         }
     }
@@ -216,7 +212,7 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     }
 
 
-    public static ArrayList<String> mSearchableArraylist;
+    private   ArrayList<String> mSearchableArraylist;
     public void setArrayList_String( ArrayList<String> searchableArrayList){
 
 
@@ -231,6 +227,8 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
 // Apply the adapter to the spinner
         setAdapter(adapter);
 
+
+
     }
 
     public void setTitle(String strTitle) {
@@ -243,5 +241,9 @@ public class SearchableSpinner extends Spinner implements View.OnTouchListener,
     }
 
 
+    private  int item_to_select=-1; //the pos of Item selected
+public void setItemSelected(int pos){
+        item_to_select=pos;
+}
 
 }
