@@ -16,7 +16,7 @@ allprojects {
 ```  
   dependencies {
   
-  		implementation 'com.github.tareq3:Material_Searchable_Spinner:1.4'
+  		implementation 'com.github.tareq3:Material_Searchable_Spinner:3.0'
 	
 	}
   
@@ -52,6 +52,7 @@ allprojects {
     // Init
       searchableSpinner  = findViewById(R.id.searchableSpinner);
       searchableSpinner.setTitle("Category",ResourcesCompat.getColor(getResources(), R.color.colorAccent, null)); //without theme);
+          searchableSpinner.setItemSelected(2); // if we want to show any item selected on initialization
       searchableSpinner.setArrayList_String(mArrayList);
 
 
